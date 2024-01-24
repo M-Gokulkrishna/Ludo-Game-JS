@@ -1,0 +1,431 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.bg_show{
+    height: 100vh;
+    width: 100%;
+    background-color: darkcyan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+:root{
+    --color1: red;
+    --color2: blue;
+    --color3: gold;
+    --color4: lawngreen;
+    --color5: rgba(0, 0, 0, 0.8);
+}
+.Game_board{
+    position: absolute;
+    height: 580px;
+    width: 580px;
+    border-radius: 12px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.final_box{
+    position: relative;
+    height: 145px;
+    width: 145px;
+    border-radius: 6px;
+}
+.Game_board :is(.player1,.player2,.player3,.player4){
+    position: absolute;
+    height: 220px;
+    width: 220px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box_set1{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 38%;
+    left: 0%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px;
+}
+.box_set2{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 0%;
+    left: 38%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+}
+.box_set3{
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 38%;
+    right: 0%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px;
+}
+.box_set4{
+    height: auto;
+    width: auto;
+    position: absolute;
+    bottom: 0%;
+    left: 38%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+}
+.player1{
+    position: absolute;
+    top: 62%;
+    left: 0%;
+    color: var(--color1);
+    background-color: var(--color1);
+}
+.player2{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    color: var(--color2);
+    background-color: var(--color2);
+}
+.player3{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    color: var(--color3);
+    background-color: var(--color3);
+}
+.player4{
+    position: absolute;
+    top: 62%;
+    right: 0%;
+    color: var(--color4);
+    background-color: var(--color4);
+}
+.box_set1 .shell ,.box_set3 .shell{
+    height: 46px;
+    width: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+}
+.box_set2 .shell ,.box_set4 .shell{
+    height: 35px;
+    width: 46px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+}
+.box_set1 .shell div{
+    transform: rotate(-135deg);
+}
+.box_set3 .shell div{
+    transform: rotate(-135deg);
+}
+.Game_board :is(.player1,.player2,.player3,.player4)>.dummy{
+    height: 150px;
+    width: 150px;
+    border-radius: 18px;
+    border: 2px solid black;
+    background-color: aliceblue;
+}
+.circle{
+    height: 40px;
+    width: 40px;
+    margin: 7.5px;
+    float: left;
+    border: 10px solid rgba(0, 0, 0, 0);
+    background-color: var(--color5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.players_final_box{
+    height: 50%;
+    width: 100%;
+    border-radius: 6px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+.final_box div:nth-child(1){
+    background-color: var(--color3);
+    top: 0%;
+    transform: rotate(180deg);
+}
+.final_box div:nth-child(2){
+    top: 25%;
+    right: 25%;
+    background-color: var(--color2);
+    transform: rotate(90deg);
+}
+.final_box div:nth-child(3){
+    bottom: 0%;
+    background-color: var(--color1);
+}
+.final_box div:nth-child(4){
+    top: 25%;
+    left: 25%;
+    transform: rotate(-90deg);
+    background-color: var(--color4);
+}
+.box_set1 div:is(:nth-child(2),:nth-child(n+8):nth-child(-n+12)){
+    background-color: var(--color2);
+}
+.box_set2 div:is(:nth-child(6),:nth-child(3n+5)){
+    background-color: var(--color3);
+}
+.box_set3 div:is(:nth-child(17),:nth-child(n+7):nth-child(-n+11)){
+    background-color: var(--color4);
+}
+.box_set4 div:is(:nth-child(13),:nth-child(3n+2):not(:nth-child(17))){
+    background-color: var(--color1);
+}
+#Heart_img{
+    position: absolute;
+    height: 25px;
+    width: 30px;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+#dice{
+    height: 65px;
+    width: 65px;
+    border-radius: 6px;
+    background-color: magenta;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.6),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transform: translate(-50%,-50%);
+    border: 1px solid;
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+}
+#dice div{
+    height: 10px;
+    width: 10px;
+    background-color: black;
+    border-radius: 50%;
+}
+#dice .dots:nth-child(4){
+    position: absolute;
+}
+#dice:active{
+    background-color: blueviolet;
+    opacity: 0.9;
+    height: 68px;
+    width: 68px;
+}
+.circle div,.shell div{
+    height: 21px;
+    width: 21px;
+    border: 3px solid;
+    transform: rotate(-45deg);
+    border-radius: 45% 50% 45% 0%;
+}
+.players_final_box div{
+    height: 21px;
+    width: 21px;
+    border: 3px solid;
+    border-radius: 45% 50% 45% 0% ;
+}
+.players_final_box div:nth-child(1){
+    transform: rotate(1deg);
+}
+.players_final_box div:nth-child(2){
+    transform: rotate(1deg);
+}
+.players_final_box div:nth-child(3){
+    transform: rotate(1deg);
+}
+.players_final_box div:nth-child(4){
+    transform: rotate(1deg);
+}
+.Crown{
+    visibility: hidden;
+    position: absolute;
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: large;
+    font-weight: bolder;
+    background-color: gold;
+    border-radius: 20%;
+    clip-path: polygon(27% 60%, 50% 0, 75% 60%, 100% 0, 100% 100%, 0 100%, 0 0);
+}
+#Checkbox{
+    position: absolute;
+    height: 20px;
+    width: 40px;
+    appearance: none;
+    border-radius: 20px;
+    background-color: lightskyblue;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.5s;
+}
+#Checkbox:checked{
+    background-color: navy;
+    opacity: 0.9;
+}
+#Checkbox::before{
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: navy;
+}
+#Checkbox:checked:before{
+    background-color: whitesmoke;
+    left: 20px;
+}
+.Spans{
+    position: absolute;
+    height: 25px;
+    width: 30px;
+    border-radius: 40% 40% 10% 10%;
+    background-color: rgba(0, 0, 0, 0.65);
+    clip-path: polygon(50% 0%, 100% 0, 100% 50%, 50% 100%, 0 50%, 0 0);
+}
+.flag_checkbox{
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    position: absolute;
+    height: 20px;
+    width: 24px;
+    appearance: none;
+    border-radius: 20px;
+    border: 1.5px solid;
+    background: radial-gradient(var(--color1),var(--color3));
+}
+#Refresh_btn{
+    position: absolute;
+    height: 20px;
+    width: 70px;
+    color:rgb(138, 13, 13);
+    font-weight: bold;
+    font-size: 15px;
+    background-color: goldenrod;
+    visibility: hidden;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 10px,
+                inset 1px 1px 4px whitesmoke,
+                inset -1px -1px 4px;
+}
+@media (width<=380px){
+    .Game_board{
+        height: 360px;
+        width: 360px;
+    }
+    .final_box{
+        background-color: aliceblue;
+        height: 85px;
+        width: 85px;
+    }
+    .Game_board :is(.player1,.player2,.player3,.player4){
+        height: 136px;
+        width: 136px;
+    }
+    .box_set1 .shell ,.box_set3 .shell{
+        height: 28px;
+        width: 22px;
+    }
+    .box_set2 .shell ,.box_set4 .shell{
+        height: 22px;
+        width: 28px;
+    }
+    .Game_board :is(.player1,.player2,.player3,.player4)>.dummy{
+        height: 90px;
+        width: 90px;
+    }
+    .circle{
+        height: 25px;
+        width: 25px;
+        float: left;
+        margin: 6px;
+        border: 4px solid rgba(0, 0, 0, 0);
+    }
+    .players_final_box{
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    #Heart_img{
+        height: 15px;
+        width: 20px;
+    }
+    #dice{
+        height: 40px;
+        width: 40px;
+    }
+    #dice:active{
+        height: 44px;
+        width: 44px;
+    }
+    #dice div{
+        height: 6px;
+        width: 6px;
+    }
+    .circle div,.shell div,.players_final_box div{
+        height: 12px;
+        width: 12px;
+        border: 2px solid;
+    }
+    .Crown{
+        position: absolute;
+        height: 45px;
+        width: 45px;
+    }
+    #Checkbox{
+        height: 10px;
+        width: 20px;
+    }
+    #Checkbox::before{
+        height: 10px;
+        width: 10px;
+    }
+    #Checkbox:checked::before{
+        left: 10px;
+    }
+    .flag_checkbox{
+        height: 12px;
+        width: 10px;
+    }
+    .Spans{
+        height: 15px;
+        width: 20px;
+    }
+    #Refresh_btn{
+        visibility: visible;
+        top: 12%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+}
